@@ -1,0 +1,15 @@
+###\u670D\u52A1\u7AEF\u53E3\u53F7
+server:
+  port: 8100
+###eureka \u57FA\u672C\u4FE1\u606F\u914D\u7F6E
+eureka:
+  instance:
+    ###\u6CE8\u518C\u5230eurekaip\u5730\u5740
+    hostname: 127.0.0.1
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+###\u56E0\u4E3A\u81EA\u5DF1\u662F\u4E3A\u6CE8\u518C\u4E2D\u5FC3\uFF0C\u4E0D\u9700\u8981\u81EA\u5DF1\u6CE8\u518C\u81EA\u5DF1
+    register-with-eureka: false
+###\u56E0\u4E3A\u81EA\u5DF1\u662F\u4E3A\u6CE8\u518C\u4E2D\u5FC3\uFF0C\u4E0D\u9700\u8981\u68C0\u7D22\u670D\u52A1
+    fetch-registry: false

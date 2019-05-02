@@ -1,0 +1,24 @@
+###服务启动端口号
+server:
+  port: 8200
+###服务名称(服务注册到eureka名称)
+spring:
+    application:
+        name: yxw-api-weixin
+###服务注册到eureka地址
+eureka:
+  client:
+    service-url:
+           defaultZone: http://localhost:8100/eureka
+
+
+####swagger相关配置
+swagger:
+  base-package: com.yxw.weixin.service
+  title: 微信服务接口文档
+  description:
+  version: 1.0
+  terms-of-service-url: www.yxw.com
+  contact:
+    name: niping
+    email: niping0020@163.com
