@@ -10,12 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
     <version>1.0-SNAPSHOT</version>
     <dependencies>
-        <dependency>
-            <groupId>com.yxw</groupId>
-            <artifactId>yxw-entity-weixin</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
+
 
     </dependencies>
     <artifactId>yxw-api-weixin</artifactId>

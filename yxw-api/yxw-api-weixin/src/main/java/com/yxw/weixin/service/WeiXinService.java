@@ -1,10 +1,6 @@
 package com.yxw.weixin.service;
 
-import com.yxw.base.BaseResponse;
-import com.yxw.weixin.entity.WeiXinEntity;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.GetMapping;
 
 
 /**
@@ -17,18 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Api(tags = "微信服务接口")
 public interface WeiXinService
 {
-
-    /**
-     * 获取应用信息
-     *
-     * @return
-     */
-    @ApiOperation(value = "获取微信信息")
-    @GetMapping("/getApp")
-    public BaseResponse<WeiXinEntity> getApp();
-
-
-
 
 
 }

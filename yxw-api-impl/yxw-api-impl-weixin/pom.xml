@@ -23,12 +23,6 @@
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
-        <dependency>
-            <groupId>com.yxw</groupId>
-            <artifactId>yxw-entity-weixin</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
 
         <dependency>
             <groupId>com.github.binarywang</groupId>
@@ -61,6 +55,12 @@
         <dependency>
             <groupId>com.yxw</groupId>
             <artifactId>yxw-common-core</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.yxw</groupId>
+            <artifactId>yxw-api-member</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>

@@ -13,10 +13,20 @@
     <file url="file://$PROJECT_DIR$/yxw-base/yxw-zuul" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/yxw-common" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/yxw-common/yxw-common-core" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/yxw-do" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/yxw-do/yxw-do-member" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/yxw-do/yxw-do-weixin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/yxw-dto" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/yxw-dto" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/yxw-dto/yxw-dto-member" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/yxw-dto/yxw-dto-weixin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/yxw-entity" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/yxw-entity/yxw-entity-member" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/yxw-entity/yxw-entity-weixin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/yxw-portal" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/yxw-vo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/yxw-vo/yxw-vo-member" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/yxw-vo/yxw-vo-weixin" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

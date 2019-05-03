@@ -8,9 +8,18 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <description>游学网会员接口服务</description>
     <version>1.0-SNAPSHOT</version>
     <artifactId>yxw-api-member</artifactId>
+
+    <description>游学网会员接口服务</description>
+    <dependencies>
+        <dependency>
+            <groupId>com.yxw</groupId>
+            <artifactId>yxw-do-member</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
 
 </project>

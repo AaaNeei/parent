@@ -1,8 +1,5 @@
 package com.yxw.base;
 
-import lombok.Data;
-
-@Data
 public class BaseResponse<T> {
 
 	private Integer rtnCode;
@@ -20,4 +17,27 @@ public class BaseResponse<T> {
 		this.data = data;
 	}
 
+	public Integer getRtnCode() {
+		return rtnCode;
+	}
+
+	public void setRtnCode(Integer rtnCode) {
+		this.rtnCode = rtnCode;
+	}
+
+	public String getMsg() {
+		return msg;
+	}
+
+	public void setMsg(String msg) {
+		this.msg = msg;
+	}
+
+	public T getData() {
+		return data;
+	}
+
+	public void setData(T data) {
+		this.data = data;
+	}
 }

@@ -11,11 +11,20 @@
         <module name="yxw-api-member" />
         <module name="yxw-api-weixin" />
         <module name="yxw-common-core" />
-        <module name="yxw-entity-member" />
-        <module name="yxw-entity-weixin" />
+        <module name="yxw-do-member" />
+        <module name="yxw-do-weixin" />
+        <module name="yxw-dto-member" />
+        <module name="yxw-dto-weixin" />
         <module name="yxw-eureka" />
+        <module name="yxw-vo-member" />
+        <module name="yxw-vo-weixin" />
         <module name="yxw-zuul" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="yxw-entity" target="1.8" />
+      <module name="yxw-entity-member" target="1.8" />
+      <module name="yxw-entity-weixin" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
