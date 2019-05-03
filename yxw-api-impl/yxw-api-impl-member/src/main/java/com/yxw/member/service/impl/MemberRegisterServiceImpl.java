@@ -4,11 +4,13 @@ import com.alibaba.fastjson.JSONObject;
 import com.yxw.base.BaseApiService;
 import com.yxw.base.BaseResponse;
 import com.yxw.constants.Constants;
-import com.yxw.in.Student;
+import com.yxw.in.StudentDO;
+import com.yxw.in.StudentInDTO;
 import com.yxw.member.feign.VerificaCodeServiceFeign;
 import com.yxw.member.mapper.StudentMapper;
 import com.yxw.member.service.MemberRegisterService;
 import com.yxw.utils.MD5Util;
+import com.yxw.utils.YxwBeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
@@ -33,7 +35,7 @@ public class MemberRegisterServiceImpl extends BaseApiService<JSONObject> implem
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public BaseResponse<JSONObject> register(@RequestBody Student student,
+    public BaseResponse<JSONObject> register(@RequestBody StudentInDTO student,
                                              @RequestParam("registerCode") String registerCode) {
         //校验基础信息
         if (StringUtils.isEmpty(student.getStuUsername())) {
@@ -57,7 +59,9 @@ public class MemberRegisterServiceImpl extends BaseApiService<JSONObject> implem
         //md5需要加盐
         String md5Pwd = MD5Util.MD5(student.getStuPassword());
         student.setStuPassword(md5Pwd);
-        //存入数据库
-        return studentMapper.register(student) > 0 ? setResultSuccess("注册成功!") : setResultError("注册失败");
+        //dto 转 do
+        StudentDO studentDO = YxwBeanUtils.dtoToDo(student, StudentDO.class);
+        //存入数据库 do
+        return studentMapper.register(studentDO) > 0 ? setResultSuccess("注册成功!") : setResultError("注册失败");
     }
 }

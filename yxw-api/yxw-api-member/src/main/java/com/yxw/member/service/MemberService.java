@@ -2,7 +2,7 @@ package com.yxw.member.service;
 
 
 import com.yxw.base.BaseResponse;
-import com.yxw.in.Student;
+import com.yxw.out.StudentOutDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
@@ -30,6 +30,18 @@ public interface MemberService {
     @ApiOperation(value = "校验用户手机号")
     @PostMapping("/exitMobile")
     @ApiImplicitParam(paramType = "query", name = "mobile", dataType = "String", required = true, value = "用户手机号")
-    public BaseResponse<Student> exitMobile(@RequestParam(value = "mobile") String mobile);
+    public BaseResponse<StudentOutDTO> exitMobile(@RequestParam(value = "mobile") String mobile);
+
+    /**
+     * 根据token查询用户信息
+     *
+     * @param token
+     * @return
+     */
+    @ApiOperation(value = "校验用户手机号")
+    @PostMapping("/exitMobile")
+    @ApiImplicitParam(paramType = "query", name = "token", dataType = "String", required = true, value = "用户token")
+    public BaseResponse<StudentOutDTO> getStudentByToken(@RequestParam(value = "token") String token);
+
 
 }
