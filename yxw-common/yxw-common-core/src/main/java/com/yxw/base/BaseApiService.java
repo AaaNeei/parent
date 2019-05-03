@@ -34,7 +34,12 @@ public class BaseApiService<T> {
 
 	// 通用封装
 	public BaseResponse<T> setResult(Integer code, String msg, T data) {
+
 		return new BaseResponse(code, msg, data);
 	}
 
+	// 调用数据库层判断
+	public Boolean toDaoResult(int result) {
+		return result > 0 ? true : false;
+	}
 }

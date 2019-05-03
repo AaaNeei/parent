@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.yxw.member.mapper.StudentMapper">
-    <resultMap id="StudentResultMap" type="com.yxw.member.entity.Student">
+    <resultMap id="StudentResultMap" type="com.yxw.in.StudentDO">
         <id column="stu_id" property="stuId" jdbcType="INTEGER"/>
         <result column="stu_name" property="stuName" jdbcType="VARCHAR"/>
         <result column="stu_sex" property="stuSex" jdbcType="VARCHAR"/>
@@ -27,38 +27,39 @@
     </sql>
 
     <!--1.用户注册mapper接口-->
-    <insert id="register" useGeneratedKeys="true" keyProperty="stuId" parameterType="com.yxw.member.entity.Student">
+    <insert id="register" useGeneratedKeys="true" keyProperty="stuId" parameterType="com.yxw.in.StudentDO">
         insert into yxw_student (
         <include refid="Student_Column_List"/>
         )
         values (null, #{stuName,jdbcType=VARCHAR}, #{stuSex,jdbcType=CHAR},
         #{stuAge,jdbcType=INTEGER},#{stuAddr,jdbcType=VARCHAR},#{stuHobbies,jdbcType=VARCHAR},
-        #{createTime},#{stuUsername,jdbcType=VARCHAR},#{stuPassword,jdbcType=VARCHAR},
+        now(),#{stuUsername,jdbcType=VARCHAR},#{stuPassword,jdbcType=VARCHAR},
         #{comment,jdbcType=VARCHAR},#{schoolId,jdbcType=INTEGER},#{stuCredits,jdbcType=INTEGER},
-        #{stuMobile,jdbcType=VARCHAR},#{stuNum,jdbcType=INTEGER},#{updateTime,jdbcType=DATE},
+        #{stuMobile,jdbcType=VARCHAR},#{stuNum,jdbcType=INTEGER},null ,
         #{stuEmil,jdbcType=VARCHAR},#{stuStatus,jdbcType=VARCHAR}
         )
     </insert>
-
+    <!--2.校验手机号是否注册-->
     <select id="exitMobile" resultMap="StudentResultMap" parameterType="java.lang.String">
         select
         <include refid="Student_Column_List"/>
         from yxw_student
         where stu_mobile = #{stuMobile} limit 1
     </select>
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <!--3.登录-->
+    <select id="login" resultMap="StudentResultMap" parameterType="com.yxw.in.StudentDO">
+        select
+        <include refid="Student_Column_List"/>
+        from yxw_student
+        where stu_username = #{stuUsername} and stu_password = #{stuPassword} limit 1
+    </select>
+    <!--3.根据用户id查询用户信息-->
+    <select id="findStudentByStuId" resultMap="StudentResultMap" parameterType="com.yxw.in.StudentDO">
+        select
+        <include refid="Student_Column_List"/>
+        from yxw_student
+        where stu_id = #{stuId} limit 1
+    </select>
 
 
     <!-- <select id="findStudentById" resultMap="StudentResultMap" parameterType="java.lang.Integer">

@@ -2,7 +2,7 @@ package com.yxw.weixin.mp.handler;
 
 import com.yxw.base.BaseResponse;
 import com.yxw.constants.Constants;
-import com.yxw.in.Student;
+import com.yxw.out.StudentOutDTO;
 import com.yxw.utils.RedisUtil;
 import com.yxw.utils.RegexUtils;
 import com.yxw.weixin.feign.MemberServiceFeign;
@@ -61,7 +61,7 @@ public class MsgHandler extends AbstractHandler {
         // 2.使用正则表达式验证消息是否为手机号码格式
         if (RegexUtils.checkMobile(fromContent)) {
             //调用会员接口查询该手机号是否已存在
-            BaseResponse<Student> exitMobile = memberServiceFeign.exitMobile(fromContent);
+            BaseResponse<StudentOutDTO> exitMobile = memberServiceFeign.exitMobile(fromContent);
             if (Constants.HTTP_RES_CODE_200.equals(exitMobile.getRtnCode())) {
                 return new TextBuilder().build("该手机号:" + fromContent + "已存在!", wxMessage, weixinService);
             }

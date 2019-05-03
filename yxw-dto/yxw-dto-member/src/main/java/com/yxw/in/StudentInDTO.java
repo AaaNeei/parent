@@ -1,12 +1,10 @@
 package com.yxw.in;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * @Author:阿倪
@@ -17,10 +15,9 @@ import java.util.Date;
  */
 @Data
 @ApiModel(value = "用户中注册")
-public class Student implements Serializable {
-    private static final long serialVersionUID = -1810858983160635755L;
-    @ApiModelProperty(value = "用户id")
-    private Integer stuId;
+public class StudentInDTO implements Serializable {
+    private static final long serialVersionUID = -18108589831606357L;
+
     @ApiModelProperty(value = "用户姓名")
     private String stuName;
     @ApiModelProperty(value = "用户性别")
@@ -33,12 +30,6 @@ public class Student implements Serializable {
     private String stuAddr;
     @ApiModelProperty(value = "用户爱好")
     private String stuHobbies;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-    @ApiModelProperty(value = "用户注册时间")
-    private Date createTime;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-    @ApiModelProperty(value = "数据修改时间")
-    private Date updateTime;
     @ApiModelProperty(value = "用户名")
     private String stuUsername;
     @ApiModelProperty(value = "注册密码")
@@ -53,24 +44,7 @@ public class Student implements Serializable {
     private String stuMobile;
     @ApiModelProperty(value = "邮箱")
     private String stuEmil;
-    @ApiModelProperty(value = "账号状态")
-    private String stuStatus;
 
-    public String getStuStatus() {
-        return stuStatus;
-    }
-
-    public void setStuStatus(String stuStatus) {
-        this.stuStatus = stuStatus;
-    }
-
-    public Integer getStuId() {
-        return stuId;
-    }
-
-    public void setStuId(Integer stuId) {
-        this.stuId = stuId;
-    }
 
     public String getStuName() {
         return stuName;
@@ -118,22 +92,6 @@ public class Student implements Serializable {
 
     public void setStuHobbies(String stuHobbies) {
         this.stuHobbies = stuHobbies;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
     }
 
     public String getStuUsername() {

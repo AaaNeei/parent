@@ -20,7 +20,7 @@ spring:
        allow-bean-definition-overriding: true #当遇到同样名字的时候，是否允许覆盖注册
    datasource:
        name: yxw_member
-       url: jdbc:mysql://118.31.9.5:3306/yxw_member
+       url: jdbc:mysql://118.31.9.5:3306/yxw_member?useUnicode=true&characterEncoding=UTF-8
        username: niping
        password: 123456
        tomcat-jdbc: com.alibaba.druid.pool.DruidDataSource
@@ -42,7 +42,10 @@ spring:
 mybatis:
  mapper-locations: classpath:mapping/*.xml
  type-aliases-package: com.yxw.member.entity
-
+####打印MyBatias日志
+logging:
+  level:
+   com.yxw.member.mapper: DEBUG
 
 ###服务注册到eureka地址
 eureka:
@@ -62,5 +65,7 @@ swagger:
     name: niping
     email: niping0020@163.com
 
-
+member:
+  login:
+    type: android_pc_ios
 
