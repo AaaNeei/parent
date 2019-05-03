@@ -5,6 +5,15 @@ server:
 spring:
     application:
         name: yxw-api-weixin
+    redis:
+      host: 192.168.162.130
+      port: 6379
+      pool:
+        max-idle: 100
+        min-idle: 1
+        max-active: 1000
+        max-wait: -1
+
 ###服务注册到eureka地址
 eureka:
   client:
@@ -22,3 +31,29 @@ swagger:
   contact:
     name: niping
     email: niping0020@163.com
+
+
+
+logging:
+  level:
+    org.springframework.web: INFO
+    com.github.binarywang.demo.wx.mp: DEBUG
+    me.chanjar.weixin: DEBUG
+wx:
+  mp:
+    configs:
+      - appId: wx9e19e0014407b8f9 #（一个公众号的appid）
+        secret: 4bac3aa62f16dc17d739cc4f1150118e #（公众号的appsecret）
+        token: 95yxw #（接口配置里的Token值）
+
+yxw:
+  weixin:
+    registration:
+       code:
+       ###微信注册码消息
+        message:  您的注册码为:%s，请关注<a href="https://www.yxw.com">游学网</a>,期待你的加入，感谢！
+    ###默认提示消息
+    default:
+      registration:
+        code:
+          message: 您的消息，我们已经收到,会及时回复给您的!

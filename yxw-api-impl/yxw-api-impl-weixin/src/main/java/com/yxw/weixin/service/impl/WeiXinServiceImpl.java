@@ -1,23 +1,21 @@
 package com.yxw.weixin.service.impl;
 
+import com.yxw.base.BaseApiService;
+import com.yxw.base.BaseResponse;
 import com.yxw.weixin.entity.WeiXinEntity;
 import com.yxw.weixin.service.WeiXinService;
 import org.springframework.web.bind.annotation.RestController;
 
-
-/**
- * @version V1.0
- * @author: niping
- * @date: 2019/05/01  0001 16:45
- * @description: 微信服务接口实现
- */
-
 @RestController
-public class WeiXinServiceImpl implements WeiXinService
-{
-    @Override
-    public WeiXinEntity getApp()
-    {
-        return new WeiXinEntity("niping","游学网");
-    }
+public class WeiXinServiceImpl extends BaseApiService<WeiXinEntity> implements WeiXinService {
+	//@Value("${yxw.weixin.name}")
+	private String name;
+
+	@Override
+	public BaseResponse<WeiXinEntity> getApp() {
+		// return setResultSuccess(new AppEntity("1111", "22222"));
+		return setResultError("系统错误");
+	}
+	// 定义泛型T的有一定缺点：该接口统一返回一种类型
+
 }
