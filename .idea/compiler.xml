@@ -10,6 +10,9 @@
         <module name="yxw-api-impl-weixin" />
         <module name="yxw-api-member" />
         <module name="yxw-api-weixin" />
+        <module name="yxw-common-core" />
+        <module name="yxw-entity-member" />
+        <module name="yxw-entity-weixin" />
         <module name="yxw-eureka" />
         <module name="yxw-zuul" />
       </profile>

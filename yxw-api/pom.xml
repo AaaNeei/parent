@@ -18,6 +18,12 @@
         <module>yxw-api-member</module>
     </modules>
     <dependencies>
+        <dependency>
+            <groupId>com.yxw</groupId>
+            <artifactId>yxw-common-core</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
         <!-- swagger-spring-boot -->
         <dependency>
             <groupId>com.spring4all</groupId>
