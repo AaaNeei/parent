@@ -87,6 +87,30 @@ public class YxwBeanUtils<DTO, DO,VO> {
         } catch (Exception e) {
             return null;
         }
+    } /**
+     * dto 转换为vo 工具类
+     *
+     * @param doEntity
+     * @param dtoClass
+     * @return
+     */
+    public static <VO> VO voToDTO(Object doEntity, Class<VO> dtoClass) {
+        // 判断dto是否为空!
+        if (doEntity == null) {
+            return null;
+        }
+        // 判断DoClass 是否为空
+        if (dtoClass == null) {
+            return null;
+        }
+        try {
+            VO newInstance = dtoClass.newInstance();
+            BeanUtils.copyProperties(doEntity, newInstance);
+            // Dto转换Do
+            return newInstance;
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     // 后面集合类型带封装

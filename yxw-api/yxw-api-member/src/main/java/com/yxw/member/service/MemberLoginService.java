@@ -7,6 +7,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * @param
@@ -27,6 +28,16 @@ public interface MemberLoginService {
     @ApiOperation(value = "用户登陆接口")
     @RequestMapping("/login")
     public BaseResponse<JSONObject> login(@RequestBody StudentLoginDTO loginDTO);
+
+    /**
+     * 用户退出入口
+     *
+     * @param token
+     * @return
+     */
+    @ApiOperation(value = "用户退出接口")
+    @RequestMapping("/exit")
+    public BaseResponse<JSONObject> exit(@RequestParam("token") String token);
 
 
 }

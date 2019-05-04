@@ -19,6 +19,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -87,6 +88,43 @@ public class MemberLoginServiceImpl extends BaseApiService<JSONObject> implement
 
         //变更数据前同时开启redis和sql事务
         return transactionRedisAndSql(studentDO, loginDTO);
+    }
+
+    @Override
+    public BaseResponse<JSONObject> exit(@RequestParam("token") String token) {
+        if (StringUtils.isEmpty(token)) {
+            return setResultError("token不能为空!");
+        }
+        String stuId = generateToken.getToken(token);
+        if (StringUtils.isEmpty(stuId)) {
+            return setResultError("token失效或不存在!");
+        }
+        TransactionStatus transactionStatus = null;
+        //删除对应得token
+        try {
+            //开启事务
+            transactionStatus = redisDataSourceTransaction.begin();
+            generateToken.removeToken(token);
+            //修改token表状态值为1,注意需要保证事务一致性
+            Integer availability = tokenMapper.updateTokenAvailability(token);
+            if (!toDaoResult(availability)) {
+                //更新失败回滚事务
+                redisDataSourceTransaction.rollback(transactionStatus);
+                return setResultError("退出状态更新失败");
+            }
+            redisDataSourceTransaction.commit(transactionStatus);
+            return setResultSuccess("已退出");
+        } catch (Exception e) {
+            //出现异常回滚事务
+            try {
+                redisDataSourceTransaction.rollback(transactionStatus);
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
+            return setResultError("系统错误!");
+        }
+
+
     }
 
     /**
